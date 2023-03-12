@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>~ tiny math ~</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<script src=""></script>
+<!-- MathJax support -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<head>
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/w3.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- w3.js -->
+    <script src="https://www.w3schools.com/lib/w3.js"></script> 
+</head>
+<body>
+    <!-- Top bar -->
+    <div class="w3-bar">
+        <a class="w3-bar-item w3-button" href="index.html">home</a>
+        <a class="w3-bar-item w3-button" href="content/about.html">about</a>
+    </div>
+    <!-- <img src="content/img/dino.gif" alt="tiny dino" style="width:100%"> -->
+    <img src="content/img/dino.gif" alt="tiny dino" title="tiny dino">
+    <div class="w3-container">
+        <p>In the next paragraphs we want to show some math.
+            </p>
+        <p>This is an inline math text using dollars $a = 1$. It does not work.
+            </p>
+        <p>This is an inline math text using backslash and 
+            partenthesis \(b = 2\)
+            </p>
+        <p>Here we have a newline (display mode) math expression using begin and end
+            equation: 
+            \begin{equation}
+            E = mc^2
+            \end{equation}
+            </p>
+        <p>Here we have a newline math expression using square brackets: 
+            \[ E = mc^2 \]
+            </p>
+
+        <p>How about some greek letters: 
+            \[ \sigma \alpha \beta \]
+            </p>
+        </div>
+
+    <!-- <div w3-include-html="/Users/guille/Projects/Web/mathpage/page/content/algebra_groups/01_groups_intro.html"></div> 
+    <script>
+        w3.includeHTML();
+        </script>  -->
+
+        <div class="w3-container" id="01_groups_intro"></div>
+        <script src="01_groups_intro.js"></script>
+
+</body>
+</html> 
