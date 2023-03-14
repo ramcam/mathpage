@@ -26,12 +26,7 @@
     <link rel="stylesheet" href="css/styles.css">
     <!-- w3.js -->
     <script src="https://www.w3schools.com/lib/w3.js"></script> 
-    <script> 
-        $(function(){
-          $("#includedContent").load("content/01_groups_intro.html", function(){MathJax.typesetPromise();}); 
-          $("#includedContent2").load("content/02_groups_intro2.html #content", function(){MathJax.typesetPromise();}); 
-        });
-        </script>
+    
 </head>
 <body>
     <!-- Top bar -->
@@ -41,33 +36,30 @@
     </div>
     <!-- <img src="content/img/dino.gif" alt="tiny dino" style="width:100%"> -->
     <img src="content/img/dino.gif" alt="tiny dino" title="tiny dino">
-    <div class="w3-container">
-        <p>In the next paragraphs we want to show some math.
-            </p>
-        <p>This is an inline math text using dollars $a = 1$. It does not work.
-            </p>
-        <p>This is an inline math text using backslash and 
-            partenthesis \(b = 2\)
-            </p>
-        <p>Here we have a newline (display mode) math expression using begin and end
-            equation: 
-            \begin{equation}
-            E = mc^2
-            \end{equation}
-            </p>
-        <p>Here we have a newline math expression using square brackets: 
-            \[ E = mc^2 \]
-            </p>
-
-        <p>How about some greek letters: 
-            \[ \sigma \alpha \beta \]
-            </p>
-        </div>
-        <div class="w3-container" id="includedContent"></div>
-        <div class="w3-container" id="includedContent2"></div>
-        <div class="w3-container">Finalized importing files
-            Some $$y=D'(\alpha) \in L.$$
-        </div>
-
+    <div class="w3-container math-content"></div>
+    <script>
+        var filepath = "content/"
+        var filenames = [
+            "01_groups_intro",
+            "02_groups_intro2",
+            "03_new_post"
+            ]
+            var html = "The following are added programmatically:"
+            for(let i=0; i<filenames.length; i++){
+                html += "<div id="+filenames[i]+"></div>"
+            }
+            $(".math-content").html(html);
+            $(function(){
+                /*$("#01_groups_intro").load("content/01_groups_intro.html", function(){MathJax.typesetPromise();});*/
+                for(let i=0; i<filenames.length; i++){
+                    console.log(filenames[i]);
+                    $("#"+filenames[i]).load(filepath + filenames[i] +".html", function(){MathJax.typesetPromise();});
+                }
+              /* 
+              $("#includedContent").load("content/01_groups_intro.html", function(){MathJax.typesetPromise();}); 
+              $("#includedContent2").load("content/02_groups_intro2.html #content", function(){MathJax.typesetPromise();});  
+              */
+            });
+    </script>
 </body>
 </html> 
