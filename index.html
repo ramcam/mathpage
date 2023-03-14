@@ -28,8 +28,8 @@
     <script src="https://www.w3schools.com/lib/w3.js"></script> 
     <script> 
         $(function(){
-          $("#includedContent").load("content/01_groups_intro.html"); 
-          $("#includedContent2").load("content/02_groups_intro2.html #content"); 
+          $("#includedContent").load("content/01_groups_intro.html", function(){MathJax.typesetPromise();}); 
+          $("#includedContent2").load("content/02_groups_intro2.html #content", function(){MathJax.typesetPromise();}); 
         });
         </script>
 </head>
@@ -65,14 +65,9 @@
         </div>
         <div class="w3-container" id="includedContent"></div>
         <div class="w3-container" id="includedContent2"></div>
-        <script>MathJax.Typeset()</script>
-    <!-- <div w3-include-html="/Users/guille/Projects/Web/mathpage/page/content/algebra_groups/01_groups_intro.html"></div> 
-    <script>
-        w3.includeHTML();
-        </script>  -->
-
-        <!-- <div class="w3-container" id="01_groups_intro"></div>
-        <script src="01_groups_intro.js"></script> -->
+        <div class="w3-container">Finalized importing files
+            Some $$y=D'(\alpha) \in L.$$
+        </div>
 
 </body>
 </html> 
