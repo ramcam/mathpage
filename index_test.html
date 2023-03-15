@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>~ tiny math ~</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<script src=""></script>
+<!-- MathJax support -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+    </script>
+
+<head>
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/w3.css">
+    <link rel="stylesheet" href="css/styles.css">
+    
+</head>
+<body>
+<!-- Top bar -->
+<div class="w3-bar">
+    <a class="w3-bar-item w3-button" href="index.html">home</a>
+    <a class="w3-bar-item w3-button" href="content/about.html">about</a>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<div class="test"></div>
+<script>
+    var fileNames = new Array();
+    $.ajax({
+      url: "/content/",
+      success: function(data){
+         $(data).find("td > a").each(function(){
+            if(openFile($(this).attr("href"))){
+                fileNames.push($(this).attr("href"));
+            }           
+         });
+      }
+    }); 
+    console.log(fileNames);
+    
+    function openFile(file) {
+        var extension = file.substr( (file.lastIndexOf('.') +1) );
+        switch(extension) {
+            case 'jpg':
+            case 'png':
+            case 'gif':   // the alert ended with pdf instead of gif.
+            case 'zip':
+            case 'rar':
+            case 'pdf':
+            case 'php':
+            case 'doc':
+            case 'docx':
+            case 'xls':
+            case 'xlsx':
+                return true;
+            default:
+                return false;
+        }
+    };
+
+    $(".test").html(fileNames);
+
+</script>
+</body>
+</html> 
