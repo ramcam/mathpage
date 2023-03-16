@@ -3,63 +3,33 @@
 <meta charset="UTF-8">
 <title>~ tiny math ~</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<script src=""></script>
+
 <!-- MathJax support -->
-<script>
-    MathJax = {
-      tex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']]
-      },
-      svg: {
-        fontCache: 'global'
-      }
-    };
-    </script>
+<script src="mathjax_config.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 <head>
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <!-- scripts -->
+    <script src="js/include.js"></script>
+    <script src="js/filenames.js"></script>
     <!-- Stylesheets -->
     <link rel="stylesheet" href="css/w3.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <!-- w3.js -->
-    <script src="https://www.w3schools.com/lib/w3.js"></script> 
-    
+    <link rel="stylesheet" href="css/styles.css"> 
 </head>
+
 <body>
     <!-- Top bar -->
     <div class="w3-bar">
         <a class="w3-bar-item w3-button" href="index.html">home</a>
-        <a class="w3-bar-item w3-button" href="content/about.html">about</a>
+        <a class="w3-bar-item w3-button" href="about.html">about</a>
     </div>
     <!-- <img src="content/img/dino.gif" alt="tiny dino" style="width:100%"> -->
-    <img src="content/img/dino.gif" alt="tiny dino" title="tiny dino">
     <div class="w3-container math-content"></div>
     <script>
-        var filepath = "content/"
-        var filenames = [
-            "01_groups_intro",
-            "02_groups_intro2",
-            "03_new_post"
-            ]
-            var html = "The following are added programmatically:"
-            for(let i=0; i<filenames.length; i++){
-                html += "<div id="+filenames[i]+"></div>"
-            }
-            $(".math-content").html(html);
-            $(function(){
-                /*$("#01_groups_intro").load("content/01_groups_intro.html", function(){MathJax.typesetPromise();});*/
-                for(let i=0; i<filenames.length; i++){
-                    console.log(filenames[i]);
-                    $("#"+filenames[i]).load(filepath + filenames[i] +".html", function(){MathJax.typesetPromise();});
-                }
-              /* 
-              $("#includedContent").load("content/01_groups_intro.html", function(){MathJax.typesetPromise();}); 
-              $("#includedContent2").load("content/02_groups_intro2.html #content", function(){MathJax.typesetPromise();});  
-              */
-            });
+      loadHtml("content/", filenames);
     </script>
 </body>
 </html> 
