@@ -1,11 +1,29 @@
 <h3>What is a group?</h3>
 
-This is a typical post from a separate html file. 
-A group \( G \) is a set with a binary operation \( * )\ such that:
-<ul>There is an identity element \(e\) such that \(e*g = g*e = g \)
-    for every element in the group.
-</ul>
-<ul>For every \( g \) there exists a \( g^(-1) )\ such that \(g*g^(-1) = e\)</ul>
-<ul>The operation \( * \) is associative.</ul>
+Informally, a <b>>group</b> is an algebraic structure where 
+operations can always be undone. 
 
-That is the definition of a group.
+Take a binary operation $$✿$$ and a set $$G$$ closed respect to $$✿$$.
+Any two elements &&g, h \in G$$ can be combined to produce a third like so:
+\[
+    g✿h = k.
+\]
+You may think of this as something we did to $$h$$ on its right side.
+Since we said every operation in our group may be undone,
+it should be possible to write
+\[
+    g^{-1}✿k = g^{-1}✿g✿h = h
+\]
+to obtain the original $$h$$. In order for this to work properly, 
+we need that $$g^{-1}✿g$$ equals something that leaves $$h$$ untoched.
+We call this the identity element $$e$$. Then
+\[
+    g^{-1}✿k = g^{-1}✿g✿h = e✿h = h.
+\]
+
+Why is this interesting? A couple of reasons:
+You probably heard that wherever there is symmetry, there is a group.
+Also, the simplest equation you can imagine, &&ax=b&& requires you to use
+groups and nothing more in order to solve it.
+
+(Add axiomatic definition.)
