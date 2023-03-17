@@ -1,2 +1,4 @@
-body {background-color: lightgray;}
-    p {background-color: white;}
+body {background-color: rgb(244, 244, 244);}
+.math-content {background-color: white; padding: 50px;}
+.informal-def {background-color: rgb(223, 243, 210); padding: 10px;}
+.def {background-color: #f2ece3; padding: 10px;}
