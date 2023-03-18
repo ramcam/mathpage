@@ -7,8 +7,8 @@ body {
 
 .math-content {
     background-color: white; 
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-left: 25px;
+    padding-right: 25px;
     max-width: 600px;
     margin: auto;
 }
@@ -33,3 +33,16 @@ body {
     border-color: #cac5bc; 
     background-color: #f2ece3;
     padding: 10px;}
+.wip{
+    background-color: rgb(255, 230, 225);
+    color: red;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+.wip::before{
+    content: "🎬 Work in progress";
+}
+.timestamp{
+    font-size: small;
+    color: lightgrey;
+}

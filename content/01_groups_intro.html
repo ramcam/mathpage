@@ -1,4 +1,114 @@
+<div class="wip"></div>
+<div class="timestamp">10.03.2023</div>
+
 <h3>What is a group?</h3>
+
+<p>
+    Suppose you find yourself working with a problem. Suppose this problem 
+    involves some set of mathematical objects which can be <em>combined 
+    to produce objects of the same kind.</em> 
+</p>
+<p>
+    Maybe you are adding integer numbers, or combining rotations and 
+    reflections that leave the vertices of some shape fixed, maybe you are
+    just performing rotations one ofter another in space, 
+    maybe you are composing continuous functions, 
+    or adding vectors, or just adding minutes in a clock while you wait 
+    for the bus. It doesn't matter what the objects are as long as two of
+    them combined produce a third of the same kind. We will be more
+    specific about what that might mean.
+</p>
+<p>
+    If you were adding integers, you would surely write $ a + b = c $. 
+    When combining two rotations $ A $ and $ B $ in space, 
+    maybe $ AB = C $ is convenient since $ AB \neq BA $ in three 
+    dimensions, and using $ + $ would be confusing. If composing
+    functions $ a(x) $ and $ b(x) $ then $ a \circ b = c$ is standard notation.
+    For vector addition or minutes in a clock $ a + b = c $ 
+    should also make sense. Again, it is irrelevant which symbol you 
+    choose for the binary operation at hand. It is usual to use the additive 
+    notation $ a + b $ for commutative operations, and the multiplicative
+    notation $ ab $ for non-commutative operations.
+</p>
+<p>
+    Suppose now that in your quest to solve your problem, you arrive at 
+    some expression $ ax= b $ (or $ a+x=c $ ), where $ x $ is unknown. 
+    You wonder if it would be possible to <em>neutralize</em> that annoying 
+    $ a $ so the $ x $ is isolated, and the problem solved.
+</p>
+<p> 
+    What should we require take for that to be
+    possible?
+</p>
+<p>
+    Certainly if in the set of objects, for any given $ a $
+    we can find an <em>inverse</em> object, we have come a long way.
+    Let's call it $ a^{-1} $ or $ -a $ in additive notation.
+</p>
+<p>
+    This allows us to do apply the <em>inverse</em> to both sides
+    of the equation
+    $$
+    \begin{align}
+    ax &= b\\
+    a^{-1}(ax) &= a^{-1}(b) \\
+    (a^{-1}a)x&= a^{-1}b.
+    \end{align}
+    $$
+    Note that we have introduced a new requirement in the last step: 
+    our operations must be associative. We are very close to
+    solving for $ x $. We now need that $ a^{-1} a $ somehow vanishes.
+    We must require that the result of $ a^{-1} a $ is a special object,
+    let's name it $ e $, with the property that $ e $ combined with 
+    any other element $ g $ results again in $ g $. This must be true
+    whem applying $ e $ to the left or right of $ g $. Then $ eg=ge = g $.
+    We call $ e $ the <em>identity element</em>.
+</p>
+<p>
+We can pick up where we left it and finally solve for $ x $:
+$$
+\begin{align}
+(a^{-1}a)x&= a^{-1}b \\
+ex&= a^{-1}b \\
+x&= a^{-1}b.
+\end{align}
+$$
+
+So far we have required:
+<ul>
+    <li>Existence of inverse elements</li>
+    <li>Associativity</li>
+    <li>Identity element.</li>
+</ul>
+    We are now ready for the formal definition of a group:
+</p>
+<div class="def">
+    A <b>group</b> is a set $ G $ closed under the associative binary operation $ * $
+    such that:
+    <ul>
+        <li>
+            There is an $ e \in G $ such that $ g*e = e*g = g $ 
+            for every $ g \in G $.
+        </li>
+        <li>
+            For every $ g \in G $ there is a $ g^{-1} $ such that 
+            $ g*g^{-1} = g^{-1}*g = e $.
+        </li>
+    </ul>
+</div>
+
+<p>
+    What have we achieved?
+
+    We have found <em>one</em> solution.
+
+    But.. are there more?
+</p>
+
+<p>
+    Suppose there is a solution <b style="color: red;">
+        [continue here...]</b>
+</p>
 
 <p>
     You probably heard that wherever there is symmetry, there is a group.
@@ -47,18 +157,17 @@ the existence of inverses, and some sort of identity element. </p>
 
 <p>We are now ready for the formal definition:</p>
 
-<div class="def">
-    A <b>group</b> is a set $ G $ closed under the associative binary operation $ * $
-    such that:
-    <ul>
-        <li>
-            There is an $ e \in G $ such that $ g*e = e*g = g $ 
-            for every $ g \in G $.
-        </li>
-        <li>
-            For every $ g \in G $ there is a $ g^{-1} $ such that 
-            $ g*g^{-1} = g^{-1}*g = e $.
-        </li>
-    </ul>
-
-</p>
+    <div class="def">
+        A <b>group</b> is a set $ G $ closed under the associative binary operation $ * $
+        such that:
+        <ul>
+            <li>
+                There is an $ e \in G $ such that $ g*e = e*g = g $ 
+                for every $ g \in G $.
+            </li>
+            <li>
+                For every $ g \in G $ there is a $ g^{-1} $ such that 
+                $ g*g^{-1} = g^{-1}*g = e $.
+            </li>
+        </ul>
+    </div>
