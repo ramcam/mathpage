@@ -1,5 +1,35 @@
-*{font-family: 'Gentium Plus', serif;}
-body {background-color: rgb(244, 244, 244);}
-.math-content {background-color: white; padding: 50px;}
-.informal-def {background-color: rgb(223, 243, 210); padding: 10px;}
-.def {background-color: #f2ece3; padding: 10px;}
+html, body, h1, h2, h3, h4, h5, h6 {
+    font-family: 'Gentium Plus', serif;
+}
+body {
+    background-color:white;
+}
+
+.math-content {
+    background-color: white; 
+    padding-left: 50px;
+    padding-right: 50px;
+    max-width: 600px;
+    margin: auto;
+}
+.external-content{
+    padding-top: 30px;
+    padding-bottom: 50px;
+    border-bottom: solid;
+    border-color: lightgray;
+    border-width: 1px;
+    text-align: justify;
+}
+
+.informal-def {
+    border-left: solid; 
+    border-width: 3px; 
+    border-color: rgb(207, 227, 193); 
+    padding: 10px;
+    background-color: rgb(244, 252, 238);}
+.def {
+    border-left: solid; 
+    border-width: 3px;
+    border-color: #cac5bc; 
+    background-color: #f2ece3;
+    padding: 10px;}
