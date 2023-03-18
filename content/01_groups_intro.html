@@ -19,15 +19,15 @@
     specific about what that might mean.
 </p>
 <p>
-    If you were adding integers, you would surely write $ a + b = c $. 
+    If you were adding integers $ a $ and $ b $, you would surely write $ a + b = c $. 
     When combining two rotations $ A $ and $ B $ in space, 
     maybe $ AB = C $ is convenient since $ AB \neq BA $ in three 
     dimensions, and using $ + $ would be confusing. If composing
     functions $ a(x) $ and $ b(x) $ then $ a \circ b = c$ is standard notation.
     For vector addition or minutes in a clock $ a + b = c $ 
     should also make sense. Again, it is irrelevant which symbol you 
-    choose for the binary operation at hand. It is usual to use the additive 
-    notation $ a + b $ for commutative operations, and the multiplicative
+    choose for the binary operation at hand. It is however usual to use the additive 
+    notation $ a + b $ for commutative operations and the multiplicative
     notation $ ab $ for non-commutative operations.
 </p>
 <p>
@@ -37,7 +37,7 @@
     $ a $ so the $ x $ is isolated, and the problem solved.
 </p>
 <p> 
-    What should we require take for that to be
+    What should we require for that to be
     possible?
 </p>
 <p>
@@ -56,7 +56,9 @@
     \end{align}
     $$
     Note that we have introduced a new requirement in the last step: 
-    our operations must be associative. We are very close to
+    our operations must be associative so we can place the parentheses
+    around the "$ a $"s. 
+    We are very close to
     solving for $ x $. We now need that $ a^{-1} a $ somehow vanishes.
     We must require that the result of $ a^{-1} a $ is a special object,
     let's name it $ e $, with the property that $ e $ combined with 
@@ -74,16 +76,19 @@ x&= a^{-1}b.
 \end{align}
 $$
 
-So far we have required:
+We have found <em>one</em> solution for $ x $!
+
+To guarantee this we had to require:
 <ul>
     <li>Existence of inverse elements</li>
     <li>Associativity</li>
     <li>Identity element.</li>
 </ul>
+    These requirements are what define a <b>group</b> structure. 
     We are now ready for the formal definition of a group:
 </p>
 <div class="def">
-    A <b>group</b> is a set $ G $ closed under the associative binary operation $ * $
+    A <b>group</b> is a set $ G $ closed under an associative binary operation $ * $
     such that:
     <ul>
         <li>
@@ -92,62 +97,49 @@ So far we have required:
         </li>
         <li>
             For every $ g \in G $ there is a $ g^{-1} $ such that 
-            $ g*g^{-1} = g^{-1}*g = e $.
+            $ g^{-1}*g = g*g^{-1} = e $.
         </li>
     </ul>
 </div>
 
 <p>
-    What have we achieved?
-
-    We have found <em>one</em> solution.
-
-    But.. are there more?
+    We have found <em>one</em> solution by imposing a <b>group</b> 
+    structure. But.. are there more?
 </p>
 
 <p>
-    Suppose there is a solution <b style="color: red;">
-        [continue here...]</b>
+    Let's give this a thought. Suppose there is more than one solution.
+    That is, there is $ y \neq x $ such that $ ay = b $. Then, solving 
+    for $ y $ like we did before for $ x$ we have $ y = a^{-1}b $. But
+    $ x = a^{-1}b $ too, so $ a^{-1}b \neq  a^{-1}b $ which is a 
+    contradiction. It turns out a group structure guarantees the existence
+    of a <em>unique</em> solution. Not bad for such a short list of 
+    requirements!  
 </p>
-
 <p>
-    You probably heard that wherever there is symmetry, there is a group.
-    Also, the simplest equation you can imagine, $ ax = b $ requires you to use
-    groups and nothing more in order to find a <i>unique</i> solution. But what are groups 
-    and how do they relate to the previous questions?
+    What kind of problems do not accept a group structure?
+    Many kinds, for example problems involving <em>irreversible</em>
+    operations. Projecting a 3d sphere into a disk is irreversible because
+    if you were handed the squished disk in the first place, how could you
+    tell if its original state was a sphere or a cylinder? Similarly,
+    multiplying an integer by zero is irreversible. What could you possibly
+    do to zero to get the original integer?
+    A more informal, but maybe more insightful definition of <em>what</em>
+    a group is could be the following:
 </p>
-
-<p>
-    First, an informal definition:
-</p>
-
 <div class="informal-def">
     A <b>group</b> is an algebraic structure where 
     operations can always be undone. 
 </div>
-
-<p>
-Take an associative binary operation $ * $ and a set $ G $ closed respect to $ * $.
-Any two elements $ g, h \in G $ can be combined to produce a third element $ k $:
-$$
-    g*h = k.
-$$
-You may think of this as something we did to $ h $ on its right side.
+<p>But we are barely scratching the surface of Group Theory. In the next 
+section we will explore all kinds of groups and some of their basic
+properties. We will also explore the connection between groups and symmetry.
 </p>
 <p>
-Since we said every operation in our group may be undone,
-it should be possible to recover $ h $ by applying $ g^{-1} $ to 
-both sides to the equation:
-$$
-g^{-1}*(k) = g^{-1}*(g*h) = (g^{-1}*g)*h = h,
-$$
-undoing what we did to $ h $ in the first place. 
-In order for the last equality to work properly, 
-we need that $ (g^{-1}*g) $ equals something that leaves $ h $ untouched.
-We call this the identity element $ e $. Then
-$$
-    (g^{-1}*g)*h = e*h = h.
-$$
+    <b style="color: red;">
+        [continue here...]</b>
+</p>
+
 
 Now we have what we wanted. An algebraic structure where everything we 
 do by means of $ * $ can be undone. Note what we have used so far to 
@@ -155,19 +147,3 @@ guarantee the properties we were after. It's really very few conditions we
 have imposed. We have required an associative binary operation, 
 the existence of inverses, and some sort of identity element. </p>
 
-<p>We are now ready for the formal definition:</p>
-
-    <div class="def">
-        A <b>group</b> is a set $ G $ closed under the associative binary operation $ * $
-        such that:
-        <ul>
-            <li>
-                There is an $ e \in G $ such that $ g*e = e*g = g $ 
-                for every $ g \in G $.
-            </li>
-            <li>
-                For every $ g \in G $ there is a $ g^{-1} $ such that 
-                $ g*g^{-1} = g^{-1}*g = e $.
-            </li>
-        </ul>
-    </div>
