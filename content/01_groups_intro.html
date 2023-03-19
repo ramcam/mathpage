@@ -1,39 +1,58 @@
-<div class="wip"></div>
-<div class="timestamp">10.03.2023</div>
+<div class="timestamp">19.03.2023</div>
 
 <h3>What is a group?</h3>
+<p>
+    You probably heard that wherever symmetry appears, groups appear too. 
+    Maybe you heard that they have to do with solving equations. 
+    Both are true. But also, much more. Groups are rather simple, yet
+    a very rich theory emerges from them connecting many distant areas in math.
+    What are groups, why are they interesting and in which context 
+    do they arise naturally?
+</p>
+<p>
+    First, an informal definition:
+</p>
+<div class="informal-def">
+    A <b>group</b> is the simplest algebraic structure where 
+    some operation can always be undone. 
+</div>
+<p>
+    What do we mean by this?
+</p>
+<p>
+    Suppose you are working on a problem involving some set of 
+    mathematical objects which can be <em>combined</em>
+    to produce objects of the <em>same</em> kind.
 
-<p>
-    Suppose you find yourself working with a problem. Suppose this problem 
-    involves some set of mathematical objects which can be <em>combined 
-    to produce objects of the same kind.</em> 
-</p>
-<p>
-    Maybe you are adding integer numbers, or combining rotations and 
-    reflections that leave the vertices of some shape fixed, maybe you are
-    just performing rotations one ofter another in space, 
-    maybe you are composing continuous functions, 
-    or adding vectors, or just adding minutes in a clock while you wait 
-    for the bus. It doesn't matter what the objects are as long as two of
-    them combined produce a third of the same kind. We will be more
-    specific about what that might mean.
-</p>
-<p>
-    If you were adding integers $ a $ and $ b $, you would surely write $ a + b = c $. 
-    When combining two rotations $ A $ and $ B $ in space, 
-    maybe $ AB = C $ is convenient since $ AB \neq BA $ in three 
-    dimensions, and using $ + $ would be confusing. If composing
-    functions $ a(x) $ and $ b(x) $ then $ a \circ b = c$ is standard notation.
-    For vector addition or minutes in a clock $ a + b = c $ 
-    should also make sense. Again, it is irrelevant which symbol you 
-    choose for the binary operation at hand. It is however usual to use the additive 
+    We will look at specific examples in the next section. For 
+    the moment, let's say that $ a, b $ are elements you found
+    inside some set $ X $, and you have 
+    a way of combining them to produce some element $ c $ also in $ X $.
+    Let's call this a <em>binary operation</em>
+    without going into much detail, and write </b> "$ + $" for this operation, so $ a + b = c$. 
+    We could also write "$ * $" so $ a * b = c $, or just $ ab = c $. It is up to you
+    which symbol to use, although it is usual to use the additive 
     notation $ a + b $ for commutative operations and the multiplicative
     notation $ ab $ for non-commutative operations.
 </p>
 <p>
     Suppose now that in your quest to solve your problem, you arrive at 
-    some expression $ ax= b $ (or $ a+x=c $ ), where $ x $ is unknown. 
-    You wonder if it would be possible to <em>neutralize</em> that annoying 
+    some expression $ ax= b $ (or $ a+x=b $ in commutative notation), 
+    where $ x $ is unknown. We will use multiplicative notation for the 
+    rest of this section.
+</p>
+<p>
+    Take a minute to observe the equation
+    $$
+    ax = b.
+    $$
+    It's a really minimal expression involving very few elements. It should
+    be really easy to solve, right? We have $ a$ and $ b $, two known objects, 
+    and one third unknown object $ x $ stuck to the right of the $ a $ by one implicit operation.
+
+</p>
+<p>
+    You maybe wonder if it would be possible to <em>neutralize</em> that annoying 
     $ a $ so the $ x $ is isolated, and the problem solved.
 </p>
 <p> 
@@ -41,33 +60,43 @@
     possible?
 </p>
 <p>
-    Certainly if in the set of objects, for any given $ a $
-    we can find an <em>inverse</em> object, we have come a long way.
+    Certainly if in the set of objects where we found $ a $ 
+    we require that for any given object we can find an <em>inverse</em>, 
+    then we have come a long way.
     Let's call it $ a^{-1} $ or $ -a $ in additive notation.
 </p>
 <p>
-    This allows us to do apply the <em>inverse</em> to both sides
-    of the equation
+    We can apply the <em>inverse</em> to both sides
+    of $ ax = b$ and move a few steps towards our goal:
     $$
     \begin{align}
-    ax &= b\\
+    ax &= b\\ 
     a^{-1}(ax) &= a^{-1}(b) \\
     (a^{-1}a)x&= a^{-1}b.
     \end{align}
     $$
-    Note that we have introduced a new requirement in the last step: 
+    
+    For the last step we have implicitly introduced a new 
+    requirement: 
     our operations must be associative so we can place the parentheses
     around the "$ a $"s. 
-    We are very close to
-    solving for $ x $. We now need that $ a^{-1} a $ somehow vanishes.
-    We must require that the result of $ a^{-1} a $ is a special object,
-    let's name it $ e $, with the property that $ e $ combined with 
-    any other element $ g $ results again in $ g $. This must be true
-    whem applying $ e $ to the left or right of $ g $. Then $ eg=ge = g $.
-    We call $ e $ the <em>identity element</em>.
 </p>
 <p>
-We can pick up where we left it and finally solve for $ x $:
+    We are now very close to solving for $ x $. 
+    We just declared that we must always be able to find inverses, 
+    but we said nothing about what an inverse is, or what happens when
+    operating something with its inverse. We need that $ a^{-1} a $ 
+    somehow vanishes.
+    Here comes the last requirement: $ a^{-1} a $ should result in an 
+    object, let's name it $ e $, with special properties. This is
+    the special element $ e $ that combined with 
+    any other element $ g $ results again in $ g $. This must be true
+    whem applying $ e $ to the left or right of $ g $. Then $ eg=ge = g $.
+    This is the element that does nothing. You can think of it as 
+    vanishing. We call $ e $ the <em>identity element</em>.
+</p>
+<p>
+We can finally solve for $ x $, using that $ a^{-1}a=e $:
 $$
 \begin{align}
 (a^{-1}a)x&= a^{-1}b \\
@@ -78,13 +107,11 @@ $$
 
 We have found <em>one</em> solution for $ x $!
 
-To guarantee this we had to require:
-<ul>
-    <li>Existence of inverse elements</li>
-    <li>Associativity</li>
-    <li>Identity element.</li>
-</ul>
-    These requirements are what define a <b>group</b> structure. 
+To guarantee this required the existence of inverse elements,
+an associative operation and an identity element.
+</p>
+<p>
+    These requirements are what define a <b>group structure.</b> 
     We are now ready for the formal definition of a group:
 </p>
 <div class="def">
@@ -103,7 +130,7 @@ To guarantee this we had to require:
 </div>
 
 <p>
-    We have found <em>one</em> solution by imposing a <b>group</b> 
+    We found <em>one</em> solution by imposing a <b>group</b> 
     structure. But.. are there more?
 </p>
 
@@ -113,37 +140,19 @@ To guarantee this we had to require:
     for $ y $ like we did before for $ x$ we have $ y = a^{-1}b $. But
     $ x = a^{-1}b $ too, so $ a^{-1}b \neq  a^{-1}b $ which is a 
     contradiction. It turns out a group structure guarantees the existence
-    of a <em>unique</em> solution. Not bad for such a short list of 
-    requirements!  
+    of a <em>unique</em> solution. As we mentioned in our
+    informal definition, this is the smallest structure achieving this.
+    Not bad for such a short list of requirements!  
 </p>
 <p>
-    What kind of problems do not accept a group structure?
-    Many kinds, for example problems involving <em>irreversible</em>
-    operations. Projecting a 3d sphere into a disk is irreversible because
-    if you were handed the squished disk in the first place, how could you
-    tell if its original state was a sphere or a cylinder? Similarly,
-    multiplying an integer by zero is irreversible. What could you possibly
-    do to zero to get the original integer?
-    A more informal, but maybe more insightful definition of <em>what</em>
-    a group is could be the following:
-</p>
-<div class="informal-def">
-    A <b>group</b> is an algebraic structure where 
-    operations can always be undone. 
-</div>
-<p>But we are barely scratching the surface of Group Theory. In the next 
-section we will explore all kinds of groups and some of their basic
-properties. We will also explore the connection between groups and symmetry.
+    Take a moment again to think about what we just achieved. What kind
+    of objects can be regarded as groups? Some examples are addition
+    of integers, composition of continuous functions, 
+    composition of rotations in space,
+    addition of vectors, applying symmetries to polyhedra, and much more.
+    We will explore this in the next section.
 </p>
 <p>
-    <b style="color: red;">
-        [continue here...]</b>
+    Now, one question for you, what kind of problems do not accept a group structure?
 </p>
-
-
-Now we have what we wanted. An algebraic structure where everything we 
-do by means of $ * $ can be undone. Note what we have used so far to 
-guarantee the properties we were after. It's really very few conditions we 
-have imposed. We have required an associative binary operation, 
-the existence of inverses, and some sort of identity element. </p>
 
