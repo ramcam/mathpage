@@ -24,6 +24,7 @@ body {
     padding-right: 25px;
     max-width: 600px;
     margin: auto;
+    text-align: justify;
 }
 .external-content{
     padding-top: 30px;
@@ -31,7 +32,6 @@ body {
     border-bottom: solid;
     border-color: lightgray;
     border-width: 1px;
-    text-align: justify;
 }
 
 .informal-def {
@@ -46,16 +46,16 @@ body {
     border-color: #cac5bc; 
     background-color: #f2ece3;
     padding: 10px;}
-.wip{
+.wip {
     background-color: rgb(255, 230, 225);
     color: red;
     font-style: italic;
     margin-bottom: 10px;
 }
-.wip::before{
+.wip::before {
     content: "🎬 Work in progress";
 }
-.timestamp{
+.timestamp {
     font-size: small;
     color: lightgrey;
 }
