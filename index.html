@@ -24,6 +24,7 @@ MathJax = {
     <!-- scripts -->
     <script src="js/include.js"></script>
     <script src="js/filenames.js"></script>
+    <script src="js/layout.js"></script>
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,17 +35,15 @@ MathJax = {
 </head>
 
 <body>
-  <!-- Top bar -->
-  <div class="w3-bar">
-      <a class="w3-bar-item w3-button" href="index.html">home</a>
-      <a class="w3-bar-item w3-button" href="about.html">about</a>
-  </div>
+  <script>makeNavBar();</script>
 
   <div class="w3-container math-content">
     <script>
       loadHtml("content/", filenames);
       </script>
   </div>
+
+  <script>makeFooter();</script>
     
 </body>
 </html> 

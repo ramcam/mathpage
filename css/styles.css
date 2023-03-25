@@ -6,6 +6,18 @@ body {
     font-size:larger;
 }
 
+.w3-button:hover{
+    background-color: rgb(246, 246, 246) !important;
+}
+
+#footer{
+    text-align: center;
+    font-size: small;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    color: lightgray;
+}
+
 .math-content {
     background-color: white; 
     padding-left: 25px;
@@ -47,3 +59,4 @@ body {
     font-size: small;
     color: lightgrey;
 }
+
