@@ -34,12 +34,14 @@ body {
     border-width: 1px;
 }
 
-.informal-def {
+.informal-def, .question {
     border-left: solid; 
     border-width: 3px; 
     border-color: rgb(207, 227, 193); 
     padding: 10px;
-    background-color: rgb(244, 252, 238);}
+    background-color: rgb(244, 252, 238);
+}
+
 .def {
     border-left: solid; 
     border-width: 3px;

@@ -1,0 +1,83 @@
+<div class="wip"></div>
+<div class="timestamp">xx.03.2023</div>
+<h3>Quintic polynomials are rarely solvable</h3>
+
+<p>
+    $ \newcommand{\Q}{\mathbb{Q}} $
+    The insolvability of the quintic is a problem that has given me a fair 
+    amount of headache. Its proof by means of Galois theory is highly abstract and
+    is usually exposed by concatenating several seeminly unmotivated steps.
+</p>
+<p>
+    Here I will try to take you 
+    (with some effort from your side) 
+    through a path in which you feel that one step unfolds 
+    naturally from the other. 
+</p>
+<p>
+    It will probably not be the fastest path,
+    but will surely be more rewarding than trying to digest a polished
+    exposition. 
+ </p>
+
+ <p>
+    Be sure to check the list of requirements before embarking 
+    on this journey. You should have basic knowledge of
+    <ul>
+        <li>Rings and fields</li>
+        <li>Polynomials over a field</li>
+        <li>Field extensions</li>
+        <li>Algebraic closures</li>
+    </ul>
+ </p>
+ <p>
+    Informally, what we set out to prove is that
+ </p>
+ <p class="informal-def">
+    The zeros of quintic polynomials 
+    cannot always be written with a radical expression.
+ </p>
+ <p>
+    We are referring to quintic polynomials with coefficients in 
+    $ \Q $ here. A radical expression means combining
+    elements in $ \Q $ with the 
+    usual operations of the field ($ + - \times \div$) and 
+    $ \sqrt[n]{\phantom{a}} $, like this
+    $$
+    \frac{3\sqrt[7]{1-\sqrt[3]{-1}}}{11\sqrt[5]{8}}.
+    $$
+ </p>
+ <p>
+    
+    You will recall that a field is closed under the operations
+    $ + - \times \div$ (except for dividing by zero). However,
+    $n$-th roots might take us <em>outside</em> of $ \Q $. 
+    This first observation leads us to our first question: 
+    <p class="question">What is the algebraic structure containing the zeros of 
+        some polynomial $p (x) $?</p>
+ </p>
+ <p>
+    If you are familiar with the concept of algebraic closure then you 
+    have an answer. However, we don't need the full algebraic closure of
+    $ \Q $, that is $ \mathbb{C} $, to discuss a specific polynomial.
+    We can work with something much smaller. If dealing with 
+    $ p(x) = x^2 - 2 $ we just need to <em>extend</em> $ \Q $ with $ \sqrt{2} $. 
+    We say $ \Q $ adjoined $ \sqrt{2} $ for this new field consisting
+    of all elements of the form $ a+b\sqrt{2} $, and write $ \Q (\sqrt{2}) $. 
+    This new field contains all zeros of $ p(x) $. 
+</p>
+<p>
+    There is nothing 
+    keeping us from extending again. Taking $ F = \Q (\sqrt{2}) $ and 
+    adjoining $ \sqrt{3} $ we get $ K = F(\sqrt{3}) 
+    = \Q ( \sqrt{2} )( \sqrt{3}) = \Q (\sqrt{2}, \sqrt{3}) $. This
+    new field $ K $ contains all zeros of $ q(x) = p(x)(x^2-3) $, 
+    but also all the zeros of $ r(x) = q(x)(x-a_1)...(x-a_n) $ where the
+    $ a_i $ are in $ \Q $. Let's call this field, the smallest 
+    one containing all the zeros of some $ p(x) $, the splitting field 
+    of $ p(x) $. 
+ </p>
+ <p>
+    We can now try to formulate our goal in terms of splitting fields?
+ </p>
+
