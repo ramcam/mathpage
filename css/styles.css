@@ -61,4 +61,7 @@ body {
     font-size: small;
     color: lightgrey;
 }
+.mathjax-commands {
+    display: none;
+}
 

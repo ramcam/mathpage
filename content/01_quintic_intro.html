@@ -1,20 +1,15 @@
 <div class="wip"></div>
 <div class="timestamp">xx.03.2023</div>
+<div class="mathjax-commands">$ \newcommand{\Q}{\mathbb{Q}} $</div>
 <h3>Quintic polynomials are rarely solvable</h3>
-
 <p>
-    $ \newcommand{\Q}{\mathbb{Q}} $
     The insolvability of the quintic is a problem that has given me a fair 
     amount of headache. Its proof by means of Galois theory is highly abstract and
     is usually exposed by concatenating several seeminly unmotivated steps.
-</p>
-<p>
     Here I will try to take you 
-    (with some effort from your side) 
-    through a path in which you feel that one step unfolds 
-    naturally from the other. 
-</p>
-<p>
+    (with some effort on your side) 
+    through a path in which I hope will feel that one step unfolds 
+    naturally from the other.
     It will probably not be the fastest path,
     but will surely be more rewarding than trying to digest a polished
     exposition. 
@@ -24,11 +19,18 @@
     Be sure to check the list of requirements before embarking 
     on this journey. You should have basic knowledge of
     <ul>
+        <li>Complex numbers</li>
+        <li>Groups, subgroups and normal subgroups</li>
         <li>Rings and fields</li>
         <li>Polynomials over a field</li>
         <li>Field extensions</li>
         <li>Algebraic closures</li>
     </ul>
+    
+ </p>
+ 
+ <p>
+   Let's get started!
  </p>
  <p>
     Informally, what we set out to prove is that
@@ -37,6 +39,7 @@
     The zeros of quintic polynomials 
     cannot always be written with a radical expression.
  </p>
+
  <p>
     We are referring to quintic polynomials with coefficients in 
     $ \Q $ here. A radical expression means combining
@@ -48,34 +51,113 @@
     $$
  </p>
  <p>
-    
-    You will recall that a field is closed under the operations
-    $ + - \times \div$ (except for dividing by zero). However,
-    $n$-th roots might take us <em>outside</em> of $ \Q $. 
-    This first observation leads us to our first question: 
-    <p class="question">What is the algebraic structure containing the zeros of 
-        some polynomial $p (x) $?</p>
+   We know from high school that this is possible, since for the 
+   polynomial $ p(x) = ax^2 + bx + c $ the zeros $ z_1, z_2 $ are given 
+   by the quadratic formula
+   $$
+   z_{1,2} = \frac{-b \pm \sqrt{b^2-4ac}}{2a}.
+   $$
  </p>
  <p>
-    If you are familiar with the concept of algebraic closure then you 
-    have an answer. However, we don't need the full algebraic closure of
-    $ \Q $, that is $ \mathbb{C} $, to discuss a specific polynomial.
+   We also know (although we don't bother to write it here) that this
+   is also possible for any polynomial of degree $3$ or $4$. We will 
+   pretend that we don't know what happens for degrees $ n \geq 5 $ 
+   but some intuition tells us that it is not possible.
+ </p>
+
+ <p>
+   Our first task will be to restate the Insolvability
+   of the Quintic in terms of some property of polynomials. Ideally, 
+   this property shows up in polynomials of degree $ n \leq 4 $ 
+   but is not present for higher degrees. 
+   What could this property be?
+ </p>
+
+ <p>
+    
+    You will recall that a field is closed under the operations
+    $ + - \times \div$ (except division by zero). However,
+    $n$-th roots might take us <em>outside</em> of $ \Q $.
+   Take for example the polynomials
+   $$ 
+   \begin{align}
+      p(x) &= x^2 - 2 = (x+\sqrt{2})(x-\sqrt{2}), \\
+      q(x) &= x^2 +1 = (x+i)(x-i).
+   \end{align}
+   
+   $$
+   Their coefficients belong to $ \Q $ but their zeros, $ \pm \sqrt{2} $
+   and $ \pm i $ respectively, do not.
+   This observation leads us to our first question: 
+    <div class="question">
+      What is the smallest algebraic structure containing the zeros of 
+      some polynomial $p (x) $?
+    </div>
+ </p>
+ <p>
+    We know that $ \mathbb{C} $, the algebraic closure of $ \Q $,
+    contains the zeros. However, we don't need the full algebraic closure
+   to discuss a specific polynomial.
     We can work with something much smaller. If dealing with 
-    $ p(x) = x^2 - 2 $ we just need to <em>extend</em> $ \Q $ with $ \sqrt{2} $. 
-    We say $ \Q $ adjoined $ \sqrt{2} $ for this new field consisting
-    of all elements of the form $ a+b\sqrt{2} $, and write $ \Q (\sqrt{2}) $. 
-    This new field contains all zeros of $ p(x) $. 
-</p>
+    $ p(x) = x^2 - 2 $, it suffices with the set of all elements of the 
+    form $ a+b\sqrt{2} $, with $a,b \in \Q$. 
+    This set is closed under the field operations and contains 
+    all the zeros of $ p(x) $. 
+    The same can be said about $ a + bi $ and $ q(x) $. 
+    These sets are called <em>splitting fields</em> and they
+    seem important
+    enough to have their definition inside a box:
+ </p>
+<div class="def">
+   The splitting field $ K $ of a polynomial with 
+   coefficients in the base field $ F $ is the smallest field 
+   where the polynomial decomposes into linear factors.
+</div>
 <p>
-    There is nothing 
+   Before we constructed the splitting fields of $ p $ and $ q $ by
+   adding a new element ($ \sqrt{2}$ and  $ i $ respectively) 
+   and all its multiples with coefficients in the base field. 
+   This is a procedure we can formalize. 
+   Given a field $ F $, we can <em>extend</em> it with a new element 
+   $ \alpha $ to get a larger field. 
+   We say $ F $ adjoined $ \alpha $ for this new 
+   field and write $ F (\alpha) $. 
+   In case this field extension contains all the zeros of some polynomial
+   $ r(x) $ we say it is its splitting field.
+</p>
+
+<p>
+    We now know how to extend once. There is nothing 
     keeping us from extending again. Taking $ F = \Q (\sqrt{2}) $ and 
     adjoining $ \sqrt{3} $ we get $ K = F(\sqrt{3}) 
     = \Q ( \sqrt{2} )( \sqrt{3}) = \Q (\sqrt{2}, \sqrt{3}) $. This
     new field $ K $ contains all zeros of $ q(x) = p(x)(x^2-3) $, 
     but also all the zeros of $ r(x) = q(x)(x-a_1)...(x-a_n) $ where the
-    $ a_i $ are in $ \Q $. Let's call this field, the smallest 
-    one containing all the zeros of some $ p(x) $, the splitting field 
-    of $ p(x) $. 
+    $ a_i $ are in $ \Q $. 
+ </p>
+
+ <p> 
+   One more example. Take $ r(x) = x^3 -2 $. Its zeros are
+   $$
+   \begin{align}
+      z_1 &= \sqrt[3]{2}, \\
+      z_2 &= \sqrt[3]{2}e^{\frac{2\pi}{3}i}, \\
+      z_3 &= \sqrt[3]{2}e^{\frac{4\pi}{3}i}.
+   \end{align}
+   $$
+   What is its splitting field?
+   The set $ \Q(\sqrt[3]{2}) $ of all elements 
+   $ a + b\sqrt[3]{2} + c\sqrt[3]{4}$ is not yet splitting. We need to 
+   adjoin some complex number as well, for example 
+   $ e^{\frac{2\pi}{3}i} $ to obtain
+   $ \Q(\sqrt[3]{2},e^{\frac{2\pi}{3}i}) $. Any element in this
+   splitting field looks like 
+   <div class="w3-red">continue here</div> 
+
+</p>
+ <p>
+   Is it always write the splitting field of a polynomial as an 
+   extension of the base field $ \Q $ ? 
  </p>
  <p>
     We can now try to formulate our goal in terms of splitting fields?
