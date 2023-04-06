@@ -35,19 +35,24 @@ makeNavContent = function(filepath="html/"){
         sectionDiv.setAttribute("class", "w3-container w3-cell section");
         sectionDiv.innerHTML = i;
         jQuery.each(val, function(j, val2){
+          var args = "'content/',[";
+          val2.forEach(filename => {
+            args += "'" + filename + "',";
+          });
+          args+="]"
+          console.log(args);
             // create chapters
             var chapter = document.createElement("div");
             chapter.setAttribute("class", "chapter");
-            chapter.innerHTML = "<a href=''>"+j+"</a>";
+            chapter.innerHTML = "<a href='javascript:void(0)' "
+              + "onclick=loadHtml(" + args + ")>"
+              + j 
+              + "</a>";
             sectionDiv.appendChild(chapter);
         });
         div.appendChild(sectionDiv);
         
     });
     document.body.appendChild(div);
-    // now add divs to 
-    // jQuery.each(content, function(i, val){})
-    //$("#nav-content").load(filepath + "navContent.html",
-    //    function(){MathJax.typesetPromise();});
 
 }
